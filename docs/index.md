@@ -1,8 +1,16 @@
-# Hello-Spack
+## The Introduction
 
 Let's take a look at what it takes to hook up a minimal C++ project to Spack. 
+What is Spack? [Spack](spack.readthedocs.io/latest) is an opensource package manager
+designed for the high performance computing (HPC) application space.
 
-We're going to begin with a minimal `Hello-World` CMake project with the following:
+Spack utilizes an expressive language to describe software application build configurations.
+
+*more on spack specs, combinatorics, concretization, etc*
+
+## The Setup
+
+We're going to begin with a minimal `Hello-World` CMake project with the following code:
 
 ``` Cmake
 # CMakeLists.txt
@@ -24,3 +32,19 @@ int main(int argc, char* argv[]){
   return 0;
 }
 ```
+
+hosted at [https://github.com/psakievich/hello-spack](https://github.com/psakievich/hello-spack) and create 
+a spack package.
+
+We also need to clone spack and get that setup following the directions [here](https://spack.readthedocs.io/en/latest/getting_started.html#installation).
+
+```terminal
+git clone -c feature.manyFiles=true https://github.com/spack/spack.git
+
+# Shell support (optional)
+# For bash/zsh/sh
+$ . spack/share/spack/setup-env.sh
+```
+
+
+
