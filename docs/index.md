@@ -143,14 +143,20 @@ Let's do a few things now and try to learn a few details.
 Each of these commands can be explored with the `--help` argument.
 
 ``` console
-$ spack env create hellos 
+$ spack env create hello 
 
-$ spack env activate hellos
+$ spack env activate hello # alias is spacktivate hellos
 
+# modify the installation location
 $ spack config add config:install_tree:'$env/installs'
 
+# modify the paths for the installations
+$ spack config add config:install_tree:projections:all:"'{name}-{version}/{hash:4}'"
+
+# see how this affects the configs seen inside the environment
 $ spack config blame config
 
+# start setting up the package to build
 $ spack add hello-spack
 
 $ spack concretize
@@ -159,5 +165,22 @@ $ spack install
 
 $ spack location --install hello-spack
 
+# spack help --all to find out what -E does
 $ spack -E location --install hello-spack build_type=Debug
+
+$ spack env deactivate # alias is despacktivate
 ```
+
+The customization opportunities of environments are why they have gained so much traction.
+Environments can be used without activation as follows:
+
+``` console
+# can be used without shell support
+$ spack -e hello [what commands you want to run with the env active]
+```
+
+## Other Topics to Explore
+
+- Development environments
+- Adding variants to the package
+- Adding dependencies to the package
