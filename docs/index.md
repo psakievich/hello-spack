@@ -1,12 +1,13 @@
 ## The Introduction
 
 Let's take a look at what it takes to hook up a minimal C++ project to Spack. 
-What is Spack? [Spack](spack.readthedocs.io/latest) is an opensource package manager
+What is Spack? [Spack](spack.readthedocs.io/latest) is an open source package manager
 designed for the high performance computing (HPC) application space.
 
 Spack utilizes an expressive language to describe software application build configurations.
 
-*more on spack specs, combinatorics, concretization, etc*
+For more on spack's many many features (customization, combinatoric builds, buildcaches, containerization etc) 
+consult the [docs](https://spack.readthedocs.io/en/latest/features.html#feature-overview)[
 
 ## The Setup
 
@@ -87,7 +88,7 @@ $ spack solve hello-spack
 $ spack solve hello-spack build_type=Debug
 ```
 
-Notice the build depencencies coming from `CMake` and `gmake`?
+Notice the build dependencies coming from `CMake` and `gmake`?
 If we know these are on the system already we can tell spack to look for them with
 
 ``` terminal
@@ -194,7 +195,7 @@ $ spack env activate hello
 $ spack develop hello-spack@main
 ```
 
-We also should reconcretize to make sure the develop status has propagated as desired. 
+We also should re-concretize to make sure the develop status has propagated as desired. 
 Look for the `dev_path` attribute in the `hello-spack` spec that is printed after concretization.
 This tells you where the source code is that it will be building off of.
 ``` console
