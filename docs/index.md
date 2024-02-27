@@ -98,7 +98,7 @@ $ spack external find cmake gmake
 Let's see the impact on concretization with the added externals:
 
 ``` terminal
-$ spack external find cmake gmake
+$ spack solve hello-spack
 ```
 We can install with:
 
@@ -258,7 +258,7 @@ We can now make a pull/merge request on these changes or push them directly to t
 
 ## Add a Variant
 
-Next let's make that string accessible at compile time through the spack package.
+Next let's make that string accessible at concretization through the spack package.
 
 
 ``` console
