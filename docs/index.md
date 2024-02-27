@@ -44,6 +44,13 @@ $ git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 # Shell support (optional)
 # For bash/zsh/sh
 $ . spack/share/spack/setup-env.sh
+
+# sandbox things in case you are already using spack
+$ export SPACK_DISABLE_LOCAL_CONFIG=1
+$ export SPACK_USER_CACHE_PATH=$SPACK_ROOT/.cache
+
+# bootstrap
+$ spack bootstrap now
 ```
 
 ## Creating the Package
@@ -59,7 +66,12 @@ $ spack create hello-spack --template cmake
 ```
 We can now walk through the suggested modifications based on the `FIXME's` and other comments.
 Minimally we need to:
+
 1) add a `git` attribute to point the package to our source
 2) add a version using the `main` branch.
+
+Now let's run `spack info hello-spack` and digest what is there.
+
+## Installing the Package
 
 
