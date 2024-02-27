@@ -134,7 +134,30 @@ $ spack load hello-spack
 So if we install multiple version of the same spec we have to get very specific,
 and we have to start worrying about collisions, stale installations etc.
 
-Spack has the ability to generate [environments](https://spack.readthedocs.io/en/latest/environments.html#environments-spack-yaml)
-to help with this issue and allow for specific customization of configuration settings (installation locations, module names and locations, build parameters, etc).
+Spack has the ability to generate 
+[environments](https://spack.readthedocs.io/en/latest/environments.html#environments-spack-yaml)
+to help with this issue and allow for specific customization of configuration settings (installation locations,
+module names and locations, build parameters, etc).
 
+Let's do a few things now and try to learn a few details.
+Each of these commands can be explored with the `--help` argument.
 
+``` console
+$ spack env create hellos 
+
+$ spack env activate hellos
+
+$ spack config add config:install_tree:'$env/installs'
+
+$ spack config blame config
+
+$ spack add hello-spack
+
+$ spack concretize
+
+$ spack install
+
+$ spack location --install hello-spack
+
+$ spack -E location --install hello-spack build_type=Debug
+```
