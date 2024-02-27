@@ -1,7 +1,11 @@
 ## The Introduction
 
 Let's take a look at what it takes to hook up a minimal C++ project to Spack. 
-What is Spack? [Spack](spack.readthedocs.io/latest) is an open source package manager
+
+
+What is Spack? 
+
+[Spack](spack.readthedocs.io/latest) is an open source package manager
 designed for the high performance computing (HPC) application space.
 
 Spack utilizes an expressive language to describe software application build configurations.
