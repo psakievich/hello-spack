@@ -7,7 +7,7 @@ designed for the high performance computing (HPC) application space.
 Spack utilizes an expressive language to describe software application build configurations.
 
 For more on spack's many many features (customization, combinatoric builds, buildcaches, containerization etc) 
-consult the [docs](https://spack.readthedocs.io/en/latest/features.html#feature-overview)[
+consult the [docs](https://spack.readthedocs.io/en/latest/features.html#feature-overview).
 
 ## The Setup
 
@@ -152,7 +152,7 @@ $ spack env activate hello # alias is spacktivate hellos
 $ spack config add config:install_tree:'$env/installs'
 
 # modify the paths for the installations
-$ spack config add config:install_tree:projections:all:"'{name}-{version}'"
+$ spack config add config:install_tree:projections:all:"'{name}-{version}/{hash:4}'"
 
 # see how this affects the configs seen inside the environment
 $ spack config blame config
@@ -278,7 +278,7 @@ Add the following to the `package.py`.
         return args
 ```
 
-In this case we've added a `variant`, is a build option for the package,
+In this case we've added a `variant`, a build option for the package,
 and we are going to turn it's value into a CMake argument.
 
 This would be the equivalent to passing `-DMY_STRING=package.py` to CMake at configure time.
@@ -323,6 +323,16 @@ $ spack load hello-spack
 $ hello
 ```
 
+Each installation that has a different value for this variant will get a new spack hash,
+and all these installations can be managed through spack.
+The end result is that many different configurations of the same software can peaceful coexist with one another.
+As a developer you can test and explore many different configuration options for your software project
+without needing to maintain a complex, project specific, infrastructure.
+
 ## Other Topics to Explore
 
 - Adding dependencies to the package
+- GPU support
+- Scripting Spack
+- Modules
+- Views
