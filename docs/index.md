@@ -20,6 +20,8 @@ cmake_minimum_required(VERSION 3.0)
 project(HelloSpack)
 
 add_executable(hello main.cpp)
+
+install(TARGETS hello DESTINATION bin)
 ```
 
 and 
@@ -74,4 +76,34 @@ Now let's run `spack info hello-spack` and digest what is there.
 
 ## Installing the Package
 
+Now let's take a look at some concretizations of `hello-spack`.
+
+``` terminal
+$ spack solve hello-spack
+
+$ spack solve hello-spack build_type=Debug
+```
+
+Notice the build depencencies coming from `CMake` and `gmake`?
+If we know these are on the system already we can tell spack to look for them with
+
+``` terminal
+$ spack external find cmake gmake
+```
+
+Let's see the impact on concretization with the added externals:
+
+``` terminal
+$ spack external find cmake gmake
+```
+We can install with:
+
+``` terminal
+$ spack install hello-spack
+```
+
+And we can see what all has been installed with:
+``` terminal
+$ spack find
+```
 
