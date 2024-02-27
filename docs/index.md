@@ -47,7 +47,10 @@ $ git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 # For bash/zsh/sh
 $ . spack/share/spack/setup-env.sh
 
-# sandbox things in case you are already using spack
+# other option but lose some features that need shell support
+# export PATH=`pwd`/spack/bin/spack:${PATH}
+
+# sandbox things if you are already using spack
 $ export SPACK_DISABLE_LOCAL_CONFIG=1
 $ export SPACK_USER_CACHE_PATH=$SPACK_ROOT/.cache
 
@@ -69,8 +72,8 @@ $ spack create hello-spack --template cmake
 We can now walk through the suggested modifications based on the `FIXME's` and other comments.
 Minimally we need to:
 
-1) add a `git` attribute to point the package to our source
-2) add a version using the `main` branch.
+1. add a `git` attribute to point the package to our source
+2. add a version using the `main` branch.
 
 Now let's run `spack info hello-spack` and digest what is there.
 
@@ -117,7 +120,7 @@ hello world
 $ spack unload hello-spack
 ```
 
-## The case for Environments
+## The Case for Environments
 
 What will happen if we also install a debug version?
 ``` terminal
@@ -131,7 +134,7 @@ $ spack load hello-spack
 So if we install multiple version of the same spec we have to get very specific,
 and we have to start worrying about collisions, stale installations etc.
 
-Spack has the ability to generate [environments](https://spack.readthedocs.io/en/latest/environments.html#environments-spack-yaml)to help with this issue and allow for specific customization of configuration settings (installation locations, module names and locations, build parameters, etc).
-
+Spack has the ability to generate [environments](https://spack.readthedocs.io/en/latest/environments.html#environments-spack-yaml)
+to help with this issue and allow for specific customization of configuration settings (installation locations, module names and locations, build parameters, etc).
 
 
