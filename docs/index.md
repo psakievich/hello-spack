@@ -107,3 +107,31 @@ And we can see what all has been installed with:
 $ spack find
 ```
 
+And use it:
+``` terminal
+$ spack load hello-spack
+
+$ hello
+hello world
+
+$ spack unload hello-spack
+```
+
+## The case for Environments
+
+What will happen if we also install a debug version?
+``` terminal
+$ spack install hello-spack build_type=Debug
+
+$ spack find -vL hello-spack
+
+$ spack load hello-spack
+```
+
+So if we install multiple version of the same spec we have to get very specific,
+and we have to start worrying about collisions, stale installations etc.
+
+Spack has the ability to generate [environments](https://spack.readthedocs.io/en/latest/environments.html#environments-spack-yaml)to help with this issue and allow for specific customization of configuration settings (installation locations, module names and locations, build parameters, etc).
+
+
+
