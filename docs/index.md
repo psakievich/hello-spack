@@ -243,7 +243,7 @@ add_executable(hello main.cpp)
 #endif
 
 int main(int argc, char* argv[]) {
-    std::cout << ""hello world "  << static_cast<std::string>(MY_STRING) << std::endl;
+    std::cout << "hello world "  << static_cast<std::string>(MY_STRING) << std::endl;
     return 0;
 }
 ```
@@ -296,8 +296,6 @@ Now let's uninstall our old instance of `hello-spack`, re-concretize, re-install
 ``` console
 $ spack info hello-spack
 
-$ spack uninstall hello-spack
-
 # look for the new variant
 $ spack concretize --force
 
@@ -309,13 +307,8 @@ $ hello
 ```
 
 Let's see the variant in action by changing it's value.
-We will be thorough about our installation management since we are changing the variants.
 
 ``` console
-$ spack unload hello-spack
-
-$ spack uninstall hello-spack
-
 $ spack change hello-spack append_string="a new world"
 
 $ spack concretize --force
@@ -336,6 +329,8 @@ without needing to maintain a complex, project specific, infrastructure.
 ## Other Topics to Explore
 
 - Adding dependencies to the package
+- Repos (custom spack packages)
+- Logs and inspection
 - GPU support
 - Scripting Spack
 - Modules
